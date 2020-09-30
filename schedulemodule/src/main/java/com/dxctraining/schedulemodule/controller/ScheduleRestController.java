@@ -49,7 +49,7 @@ public class ScheduleRestController {
 	}
 	
 	@GetMapping("get/{scheduleId}")
-	public ScheduleDto findByScheduleId(@PathVariable("scheduleId")@NotBlank Integer scheduleId) {
+	public ScheduleDto findByScheduleId(@PathVariable("scheduleId") Integer scheduleId) {
 		Schedule schedule = service.findByScheduleId(scheduleId);
 		AirportDto airportDto = findAirportByAirportId(schedule.getAirportCode());
 		ScheduleDto response = util.scheduleDto(schedule, airportDto.getAirportCode(), airportDto.getAirportName(), airportDto.getAirportLocation());
@@ -70,7 +70,7 @@ public class ScheduleRestController {
 	}
 
 	private AirportDto findAirportByAirportId(String airportCode) {
-		String url = "http://localhost:8686/airports/get/"+airportCode;
+		String url = "http://localhost:8688/airports/get/"+airportCode;
 		AirportDto dto = restTemplate.getForObject(url, AirportDto.class);
 		return dto;
 	}

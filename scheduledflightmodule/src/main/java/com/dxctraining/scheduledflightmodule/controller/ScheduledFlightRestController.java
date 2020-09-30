@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +41,17 @@ public class ScheduledFlightRestController {
 		ScheduleDto scheduleDto = findScheduleByScheduleId(req.getScheduleId());
 		FlightDto flightDto = findFlightByFlightNumber(req.getFlightNumber());
 		ScheduledFlightDto response = util.sfDto(scheduledFlight,scheduleDto.getScheduleId(),scheduleDto.getArrivalTime(),scheduleDto.getDepartureTime(),scheduleDto.getAirportCode(),flightDto.getFlightNumber(),flightDto.getFlightModel(),flightDto.getCarrierName(),flightDto.getSeatCapacity());
+		return response;
+	}
+	
+	@GetMapping("/get/{sfId}")
+	public ScheduledFlightDto findScheduledFlightBySfId(@PathVariable("sfId")BigInteger sfId) {
+		ScheduledFlight scheduledFlight = service.findBySfId(sfId);
+		Integer scheduleId = scheduledFlight.getScheduleId();
+		ScheduleDto scheduleDto = findScheduleByScheduleId(scheduleId);
+		BigInteger flightNumber = scheduledFlight.getFlightNumber();
+		FlightDto flightDto = findFlightByFlightNumber(flightNumber);
+		ScheduledFlightDto response = util.sfDto(scheduledFlight,scheduleId,scheduleDto.getArrivalTime(),scheduleDto.getDepartureTime(),scheduleDto.getAirportCode(),flightNumber, flightDto.getFlightModel(), flightDto.getCarrierName(), flightDto.getSeatCapacity());
 		return response;
 	}
 	
