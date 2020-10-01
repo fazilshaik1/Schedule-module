@@ -10,6 +10,10 @@ public class ScheduleDto {
 	
 	private Date departureTime;
 	
+	private String sourceAirport;
+	
+	private String destinationAirport;
+	
 	private String airportCode;
 	
 	private String airportName;
@@ -20,10 +24,12 @@ public class ScheduleDto {
 		
 	}
 	
-	public ScheduleDto(Integer scheduleId, Date arrivalTime, Date departureTime) {
+	public ScheduleDto(Integer scheduleId, Date arrivalTime, Date departureTime, String sourceAirport, String destinationAirport) {
 		this.scheduleId = scheduleId;
 		this.arrivalTime = arrivalTime;
 		this.departureTime = departureTime;
+		this.sourceAirport = sourceAirport;
+		this.destinationAirport = destinationAirport;
 	}
 
 	public Integer getScheduleId() {
@@ -48,6 +54,22 @@ public class ScheduleDto {
 
 	public void setDepartureTime(Date departureTime) {
 		this.departureTime = departureTime;
+	}
+
+	public String getSourceAirport() {
+		return sourceAirport;
+	}
+
+	public void setSourceAirport(String sourceAirport) {
+		this.sourceAirport = sourceAirport;
+	}
+
+	public String getDestinationAirport() {
+		return destinationAirport;
+	}
+
+	public void setDestinationAirport(String destinationAirport) {
+		this.destinationAirport = destinationAirport;
 	}
 
 	public String getAirportCode() {

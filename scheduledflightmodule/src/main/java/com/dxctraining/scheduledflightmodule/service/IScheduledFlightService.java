@@ -13,5 +13,7 @@ public interface IScheduledFlightService {
 	
 	List<ScheduledFlight> allScheduledFlights();
 	
+	void deleteScheduledFlight(BigInteger sfId);
+	
 
 }

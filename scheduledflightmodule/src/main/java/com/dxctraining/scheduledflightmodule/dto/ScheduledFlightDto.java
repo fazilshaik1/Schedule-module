@@ -17,6 +17,10 @@ public class ScheduledFlightDto {
 	
 	private Date departureTime;
 	
+	private String sourceAirport;
+	
+	private String destinationAirport;
+	
 	private String airportCode;
 	
 	private String flightModel;
@@ -80,6 +84,22 @@ public class ScheduledFlightDto {
 
 	public void setDepartureTime(Date departureTime) {
 		this.departureTime = departureTime;
+	}
+
+	public String getSourceAirport() {
+		return sourceAirport;
+	}
+
+	public void setSourceAirport(String sourceAirport) {
+		this.sourceAirport = sourceAirport;
+	}
+
+	public String getDestinationAirport() {
+		return destinationAirport;
+	}
+
+	public void setDestinationAirport(String destinationAirport) {
+		this.destinationAirport = destinationAirport;
 	}
 
 	public String getAirportCode() {

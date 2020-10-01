@@ -2,14 +2,19 @@ package com.dxctraining.scheduledflightmodule.dto;
 
 import java.math.BigInteger;
 
+import javax.validation.constraints.NotNull;
+
 public class CreateScheduledFlightRequest {
 	
+	@NotNull
 	private Integer availableSeats;
 	
+	@NotNull
 	private Integer scheduleId;
 	
+	@NotNull
 	private BigInteger flightNumber;
-
+	
 	public Integer getAvailableSeats() {
 		return availableSeats;
 	}

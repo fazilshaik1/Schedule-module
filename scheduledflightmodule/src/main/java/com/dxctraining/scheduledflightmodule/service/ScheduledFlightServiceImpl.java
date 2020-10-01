@@ -50,4 +50,15 @@ public class ScheduledFlightServiceImpl implements IScheduledFlightService {
 		return list;
 	}
 
+
+	@Override
+	public void deleteScheduledFlight(BigInteger sfId) {
+		if(dao.existsById(sfId)) {
+			dao.deleteById(sfId);
+		}else {
+			throw new InvalidArgumentException("There is no scheduledFlight, enter valid sfId");
+		}
+		
+	}
+
 }

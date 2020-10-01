@@ -2,6 +2,7 @@ package com.dxctraining.schedulemodule.dto;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,6 +21,13 @@ public class CreateScheduleDto {
 	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd/mm/yyyy")
 	private Date departureTime;
 	
+	@NotEmpty
+	private String sourceAirport;
+	
+	@NotEmpty
+	private String destinationAirport;
+	
+	@NotNull
 	private String airportCode;
 
 	public Date getArrivalTime() {
@@ -36,6 +44,22 @@ public class CreateScheduleDto {
 
 	public void setDepartureTime(Date departureTime) {
 		this.departureTime = departureTime;
+	}
+
+	public String getSourceAirport() {
+		return sourceAirport;
+	}
+
+	public void setSourceAirport(String sourceAirport) {
+		this.sourceAirport = sourceAirport;
+	}
+
+	public String getDestinationAirport() {
+		return destinationAirport;
+	}
+
+	public void setDestinationAirport(String destinationAirport) {
+		this.destinationAirport = destinationAirport;
 	}
 
 	public String getAirportCode() {

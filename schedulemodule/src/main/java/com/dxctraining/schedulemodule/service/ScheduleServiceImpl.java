@@ -48,4 +48,14 @@ public class ScheduleServiceImpl implements IScheduleService {
 		return schedule;
 	}
 
+	@Override
+	public void deleteSchedule(Integer scheduleId) {
+		if(dao.existsById(scheduleId)) {
+			dao.deleteById(scheduleId);
+		}else {
+			throw new InvalidArgumentException("there is no such schedule, enter valid scheduleId");
+		}
+		
+	}
+
 }
